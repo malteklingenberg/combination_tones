@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-npx sv@0.12.5 create --template demo --types ts --add prettier eslint --install npm tartini_tones
+npx sv@0.12.5 create --template demo --types ts --add prettier eslint --install npm combination_tones
 ```
 
 ## Developing

@@ -20,7 +20,7 @@
 			</picture>
 		</span>
 
-		to TartiniTones
+		to CombinationTones
 	</h1>
 
 	<!--<Counter />-->

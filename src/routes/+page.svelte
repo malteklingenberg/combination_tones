@@ -1,31 +1,30 @@
 <script lang="ts">
-	import welcomeFallback from '$lib/images/svelte-welcome.png';
-	import welcome from '$lib/images/svelte-welcome.webp';
+	import FrequencyPlayer from './FrequencyPlayer.svelte';
+	import NotePlayer from './NotePlayer.svelte';
+	import { frequencies_just } from './note_frequencies';
 
-	import Counter from './Counter.svelte';
-	import TonePlayer from './TonePlayer.svelte';
+	type NoteName = keyof typeof frequencies_just;
+
+	let note1 = $state<NoteName>('A4');
+	let note2 = $state<NoteName>('C#5');
+	let differenceFrequencyHz = $derived(Math.abs(frequencies_just[note1] - frequencies_just[note2]));
+	let cubicDifferenceFrequencyHz = $derived(2*frequencies_just[note1] - frequencies_just[note2]);
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Combination Tones</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcomeFallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to CombinationTones
+	<h1 class="page-title">
+		Combination Tones
 	</h1>
 
-	<!--<Counter />-->
-	<TonePlayer note='A4'/>
-	<TonePlayer note='C#5'/>
+	<NotePlayer bind:note={note1} />
+	<NotePlayer bind:note={note2} />
+	<FrequencyPlayer frequencyHz={differenceFrequencyHz} formula="|f1 - f2|" />
+	<FrequencyPlayer frequencyHz={cubicDifferenceFrequencyHz} formula="2f1 - f2" />
 </section>
 
 <style>
@@ -37,23 +36,15 @@
 		flex: 0.6;
 	}
 
-	h1 {
+	.page-title {
+		margin: 0 0 1.75rem;
 		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+		text-align: center;
+		font-size: clamp(2rem, 5.5vw, 3rem);
+		font-weight: 300;
+		letter-spacing: 0.03em;
+		line-height: 1.15;
+		color: var(--color-text);
+		text-wrap: balance;
 	}
 </style>

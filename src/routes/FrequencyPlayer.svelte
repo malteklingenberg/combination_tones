@@ -52,19 +52,24 @@
 <style>
 	.tone-player {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		align-items: stretch;
 		gap: 1rem;
-		margin-top: 1rem;
+		margin-top: 0;
+		flex: 0 0 13rem;
+		width: 13rem;
+		min-width: 13rem;
 	}
 
 	.mean-tone-player .label {
 		font-size: 1.2rem;
-		min-width: 12rem;
+		text-align: center;
 	}
 
 	button {
 		padding: 0.5rem 1rem;
 		font-size: 1.2rem;
 		cursor: pointer;
+		width: 100%;
 	}
 </style>

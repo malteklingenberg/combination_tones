@@ -16,24 +16,41 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
+<section class="page">
 	<h1 class="page-title">
 		Combination Tones
 	</h1>
 
-	<NotePlayer bind:note={note1} />
-	<NotePlayer bind:note={note2} />
-	<FrequencyPlayer frequencyHz={differenceFrequencyHz} formula="|f1 - f2|" />
-	<FrequencyPlayer frequencyHz={cubicDifferenceFrequencyHz} formula="2f1 - f2" />
+	<div class="players-container">
+		<NotePlayer bind:note={note1} />
+		<NotePlayer bind:note={note2} />
+		<FrequencyPlayer frequencyHz={differenceFrequencyHz} formula="|f1 - f2|" />
+		<FrequencyPlayer frequencyHz={cubicDifferenceFrequencyHz} formula="2f1 - f2" />
+	</div>
 </section>
 
 <style>
-	section {
+	.page {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex: 0.6;
+		min-height: 70vh;
+		width: 100%;
+		padding: 2rem 1rem;
+	}
+
+	.players-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		margin: 2rem 0 0 0;
 	}
 
 	.page-title {

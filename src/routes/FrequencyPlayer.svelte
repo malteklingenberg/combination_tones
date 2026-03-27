@@ -2,6 +2,8 @@
 	import * as Tone from 'tone';
 	import { onDestroy } from 'svelte';
 
+	import FrequencyImage from '$lib/FrequencyImage.svelte';
+
 	let isPlaying = $state(false);
 	let synth: Tone.Synth | null = null;
 	let { frequencyHz, formula }: { frequencyHz: number, formula: string } = $props();
@@ -41,8 +43,10 @@
 	}
 </script>
 
-<div class="tone-player mean-tone-player">
+<div class="tone-player">
 	<span class="label" title="Difference frequency">{formula} = {formatHz(frequencyHz)} Hz</span>
+
+	<FrequencyImage frequency={frequencyHz} />
 
 	<button onclick={toggle}>
 		{isPlaying ? 'Stop' : 'Play'}
@@ -61,7 +65,7 @@
 		min-width: 13rem;
 	}
 
-	.mean-tone-player .label {
+	.label {
 		font-size: 1.2rem;
 		text-align: center;
 	}

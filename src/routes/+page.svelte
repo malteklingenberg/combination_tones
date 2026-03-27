@@ -7,8 +7,10 @@
 
 	let note1 = $state<NoteName>('A4');
 	let note2 = $state<NoteName>('C#5');
-	let differenceFrequencyHz = $derived(Math.abs(frequencies_just[note1] - frequencies_just[note2]));
-	let cubicDifferenceFrequencyHz = $derived(2*frequencies_just[note1] - frequencies_just[note2]);
+	let lowerFreq = $derived(Math.min(frequencies_just[note1], frequencies_just[note2]));
+	let higherFreq = $derived(Math.max(frequencies_just[note1], frequencies_just[note2]));
+	let differenceFrequencyHz = $derived(Math.abs(lowerFreq - higherFreq));
+	let cubicDifferenceFrequencyHz = $derived(2*lowerFreq - higherFreq);
 </script>
 
 <svelte:head>
@@ -44,7 +46,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		align-items: flex-start;
+		align-items: center;
 		flex-wrap: wrap;
 		gap: 1.5rem;
 		width: 100%;

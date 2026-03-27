@@ -26,8 +26,8 @@
 	<div class="players-container">
 		<NotePlayer bind:note={note1} />
 		<NotePlayer bind:note={note2} />
-		<FrequencyPlayer frequencyHz={differenceFrequencyHz} formula="|f1 - f2|" />
-		<FrequencyPlayer frequencyHz={cubicDifferenceFrequencyHz} formula="2f1 - f2" />
+		<FrequencyPlayer frequencyHz={differenceFrequencyHz} formula="|f₁ - f₂|" />
+		<FrequencyPlayer frequencyHz={cubicDifferenceFrequencyHz} formula="2f₁ - f₂" />
 	</div>
 </section>
 

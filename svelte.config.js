@@ -5,8 +5,13 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		paths: {
-     		base: process.argv.includes('dev') ? '' : '/combination_tones',
-	   	},
+     		base: process.argv.includes('dev') ? '' : '/combination_tones'
+	   	}
+	},
+	vite: {
+		ssr: {
+			noExternal: ['svelte-fa']
+		}
 	}
 };
 

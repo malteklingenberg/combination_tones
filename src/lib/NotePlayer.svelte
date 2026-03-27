@@ -1,5 +1,7 @@
 <script lang="ts">
 	import * as Tone from 'tone';
+	import Fa from 'svelte-fa';
+	import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
 	import { onDestroy } from 'svelte';
 	import { frequencies_just } from '$lib/note_frequencies';
 
@@ -50,7 +52,7 @@
 	</select>
 
 	<button onclick={toggle}>
-		{isPlaying ? 'Stop' : 'Play'}
+		<Fa icon={isPlaying ? faStop : faPlay} />
 	</button>
 </div>
 

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import * as Tone from 'tone';
+	import Fa from 'svelte-fa';
+	import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
 	import { onDestroy } from 'svelte';
-
 	import FrequencyImage from '$lib/FrequencyImage.svelte';
 
 	let isPlaying = $state(false);
@@ -49,7 +50,7 @@
 	<FrequencyImage frequency={frequencyHz} />
 
 	<button onclick={toggle}>
-		{isPlaying ? 'Stop' : 'Play'}
+		<Fa icon={isPlaying ? faStop : faPlay} />
 	</button>
 </div>
 

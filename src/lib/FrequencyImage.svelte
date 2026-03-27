@@ -25,8 +25,8 @@
 	});
 </script>
 
-{#if frequency === 0}
-	<img src={asset(`/note_images/0.png`)} alt="(frequency is 0)" />
+{#if frequency <= 0}
+	<img src={asset(`/note_images/0.png`)} alt="(0 or negative)" />
 	<p class="diff-cents">&nbsp;</p>
 
 {:else if closestNote !== null && closestDiffCents != null }

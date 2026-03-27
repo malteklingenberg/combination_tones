@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as Tone from 'tone';
 	import { onDestroy } from 'svelte';
-	import { frequencies_just } from './note_frequencies';
+	import { frequencies_just } from '$lib/note_frequencies';
 
 	type NoteName = keyof typeof frequencies_just;
 	let dropdownNoteNames: NoteName[] = ['A3','Bb3','B3','C4','C#4','D4','Eb4','E4','F4','F#4','G4','G#4','A4','Bb4','B4','C5','C#5','D5','Eb5','E5','F5','F#5','G5','G#5','A5'];

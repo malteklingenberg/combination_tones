@@ -1,7 +1,7 @@
 <script lang="ts">
-	import FrequencyPlayer from './FrequencyPlayer.svelte';
-	import NotePlayer from './NotePlayer.svelte';
-	import { frequencies_just } from './note_frequencies';
+	import FrequencyPlayer from '$lib/FrequencyPlayer.svelte';
+	import NotePlayer from '$lib/NotePlayer.svelte';
+	import { frequencies_just } from '$lib/note_frequencies';
 
 	type NoteName = keyof typeof frequencies_just;
 

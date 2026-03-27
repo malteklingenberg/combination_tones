@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { frequencies_just } from '../routes/note_frequencies';
+	import { asset } from '$app/paths';
+	import { frequencies_just } from '$lib/note_frequencies';
 
 	type NoteName = keyof typeof frequencies_just;
 
@@ -25,11 +26,11 @@
 </script>
 
 {#if frequency === 0}
-	<img src={`/note_images/0.png`} alt="(frequency is 0)" />
+	<img src={asset(`/note_images/0.png`)} alt="(frequency is 0)" />
 	<p class="diff-cents">&nbsp;</p>
 
 {:else if closestNote !== null && closestDiffCents != null }
-	<img src={`/note_images/${closestNote.replace('#', 's')}.png`} alt={`${closestNote}`} />
+	<img src={asset(`/note_images/${closestNote.replace('#', 's')}.png`)} alt={`${closestNote}`} />
 	<p class="diff-cents">
 		{closestDiffCents >= 0 ? '+' : ''}{closestDiffCents.toFixed(1)}¢
 	</p>

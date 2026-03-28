@@ -1,13 +1,9 @@
-<script lang="ts">
-	import { resolve } from '$app/paths';
-</script>
-
 <svelte:head>
 	<title>About</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="text-column">
+<div class="mx-auto flex max-w-2xl flex-[0.6] flex-col justify-center px-4 py-6">
 	<h1>About this app</h1>
 
 	<p>
@@ -23,7 +19,5 @@
 		the devtools network panel and reloading.
 	</p>
 
-	<p>
-		Try: G4 + D5
-	</p>
+	<p>Try: G4 + D5</p>
 </div>

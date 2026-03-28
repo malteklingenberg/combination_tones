@@ -10,60 +10,27 @@
 	let lowerFreq = $derived(Math.min(frequencies_just[note1], frequencies_just[note2]));
 	let higherFreq = $derived(Math.max(frequencies_just[note1], frequencies_just[note2]));
 	let differenceFrequencyHz = $derived(Math.abs(lowerFreq - higherFreq));
-	let cubicDifferenceFrequencyHz = $derived(2*lowerFreq - higherFreq);
+	let cubicDifferenceFrequencyHz = $derived(2 * lowerFreq - higherFreq);
 </script>
 
 <svelte:head>
 	<title>Combination Tones</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="Interactive demonstration of combination tones" />
 </svelte:head>
 
-<section class="page">
-	<h1 class="page-title">
-		Combination Tones
-	</h1>
+<section class="hero min-h-[70vh] bg-transparent">
+	<div class="hero-content flex-col gap-8 px-4 py-8">
+		<h1 class="text-center text-5xl tracking-wide text-base-content">Combination Tones</h1>
 
-	<div class="players-container">
-		<NotePlayer bind:note={note1} />
-		<NotePlayer bind:note={note2} />
-		<FrequencyPlayer frequencyHz={differenceFrequencyHz} formula="|f₁ - f₂|" />
-		<FrequencyPlayer frequencyHz={cubicDifferenceFrequencyHz} formula="2f₁ - f₂" />
+		<div class="flex w-full flex-wrap justify-center gap-x-18 gap-y-6">
+			<div class="flex gap-6">
+				<NotePlayer bind:note={note1} />
+				<NotePlayer bind:note={note2} />
+			</div>
+			<div class="flex gap-6">
+				<FrequencyPlayer frequencyHz={differenceFrequencyHz} formula="|f₁ - f₂|" />
+				<FrequencyPlayer frequencyHz={cubicDifferenceFrequencyHz} formula="2f₁ - f₂" />
+			</div>
+		</div>
 	</div>
 </section>
-
-<style>
-	.page {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		min-height: 70vh;
-		width: 100%;
-		padding: 2rem 1rem;
-	}
-
-	.players-container {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		flex-wrap: wrap;
-		gap: 1.5rem;
-		width: 100%;
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
-		margin: 2rem 0 0 0;
-	}
-
-	.page-title {
-		margin: 0 0 1.75rem;
-		width: 100%;
-		text-align: center;
-		font-size: clamp(2rem, 5.5vw, 3rem);
-		font-weight: 300;
-		letter-spacing: 0.03em;
-		line-height: 1.15;
-		color: var(--color-text);
-		text-wrap: balance;
-	}
-</style>

@@ -26,27 +26,15 @@
 </script>
 
 {#if frequency <= 0}
-	<img src={asset(`/note_images/0.png`)} alt="(0 or negative)" />
-	<p class="diff-cents">&nbsp;</p>
-
-{:else if closestNote !== null && closestDiffCents != null }
-	<img src={asset(`/note_images/${closestNote.replace('#', 's')}.png`)} alt={`${closestNote}`} />
-	<p class="diff-cents">
+	<img class="mx-auto block w-4/5" src={asset(`/note_images/0.png`)} alt="(0 or negative)" />
+	<p class="-mt-4 text-center text-2xl text-base-content">&nbsp;</p>
+{:else if closestNote !== null && closestDiffCents != null}
+	<img
+		class="mx-auto block w-4/5"
+		src={asset(`/note_images/${closestNote.replace('#', 's')}.png`)}
+		alt={`${closestNote}`}
+	/>
+	<p class="-mt-4 text-center text-2xl text-base-content">
 		{closestDiffCents >= 0 ? '+' : ''}{closestDiffCents.toFixed(1)}¢
 	</p>
-
 {/if}
-
-<style>
-	.diff-cents {
-		margin: -1rem auto 0;
-		font-size: 1.6rem;
-		text-align: center;
-	}
-
-	img {
-		width: 80%;
-		align-self: center;
-	}
-</style>
-

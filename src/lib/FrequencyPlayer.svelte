@@ -7,7 +7,7 @@
 
 	let isPlaying = $state(false);
 	let synth: Tone.Synth | null = null;
-	let { frequencyHz, formula }: { frequencyHz: number, formula: string } = $props();
+	let { frequencyHz, formula }: { frequencyHz: number; formula: string } = $props();
 
 	async function toggle() {
 		if (isPlaying) {
@@ -40,41 +40,24 @@
 	});
 
 	function formatHz(hz: number): string {
-		return hz < 100 ? hz.toFixed(2) : hz.toFixed(1);
+		// return hz < 100 ? hz.toFixed(2) : hz.toFixed(1);
+		return hz.toFixed(2);
 	}
 </script>
 
-<div class="tone-player">
-	<span class="label" title="Difference frequency">{formula} = {formatHz(frequencyHz)} Hz</span>
+<div class="card card-border w-56 shrink-0 shadow-xl glass">
+	<div class="card-body gap-4">
+		<h2
+			class="card-title m-0 flex h-[calc(var(--size-field,0.25rem)*10)] w-full shrink-0 items-center justify-center text-center text-lg leading-none"
+			title="Difference frequency"
+		>
+			{formula} = {formatHz(frequencyHz)} Hz
+		</h2>
 
-	<FrequencyImage frequency={frequencyHz} />
+		<FrequencyImage frequency={frequencyHz} />
 
-	<button onclick={toggle}>
-		<Fa icon={isPlaying ? faStop : faPlay} />
-	</button>
+		<button class="btn btn-primary w-full" type="button" onclick={toggle}>
+			<Fa icon={isPlaying ? faStop : faPlay} />
+		</button>
+	</div>
 </div>
-
-<style>
-	.tone-player {
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
-		gap: 1rem;
-		margin-top: 0;
-		flex: 0 0 13rem;
-		width: 13rem;
-		min-width: 13rem;
-	}
-
-	.label {
-		font-size: 1.2rem;
-		text-align: center;
-	}
-
-	button {
-		padding: 0.5rem 1rem;
-		font-size: 1.2rem;
-		cursor: pointer;
-		width: 100%;
-	}
-</style>

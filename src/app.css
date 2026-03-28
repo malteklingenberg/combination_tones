@@ -105,7 +105,7 @@
  * Restore the native menulist so Up/Down cycle the value while focused.
  */
 @layer utilities {
-	select {
+	.select-plain {
 		appearance: auto !important;
 		-webkit-appearance: menulist !important;
 		-moz-appearance: menulist !important;

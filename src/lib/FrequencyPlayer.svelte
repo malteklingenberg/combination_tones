@@ -46,7 +46,7 @@
 </script>
 
 <div class="card card-border w-56 shrink-0 shadow-xl glass">
-	<div class="card-body gap-4">
+	<div class="card-body gap-4 p-4">
 		<h2
 			class="card-title m-0 flex h-[calc(var(--size-field,0.25rem)*10)] w-full shrink-0 items-center justify-center text-center text-lg leading-none"
 			title="Difference frequency"

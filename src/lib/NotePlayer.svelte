@@ -3,10 +3,10 @@
 	import Fa from 'svelte-fa';
 	import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
 	import { onDestroy } from 'svelte';
-	import { frequencies_just } from '$lib/note_frequencies';
+	import { type NoteName, Temperament, getFrequency } from '$lib/frequency';
 	import FrequencyImage from '$lib/FrequencyImage.svelte';
 
-	type NoteName = keyof typeof frequencies_just;
+
 	let dropdownNoteNames: NoteName[] = [
 		'A3',
 		'Bb3',
@@ -37,7 +37,7 @@
 
 	let isPlaying = $state(false);
 	let synth: Tone.Synth | null = null;
-	let { note = $bindable(dropdownNoteNames[0]) }: { note?: NoteName } = $props();
+	let { note = $bindable(), temperament }: { note: NoteName, temperament: Temperament } = $props();
 
 	async function toggle() {
 		if (isPlaying) {
@@ -52,7 +52,7 @@
 					}
 				}).toDestination();
 			}
-			synth.triggerAttack(frequencies_just[note]);
+			synth.triggerAttack(getFrequency(note, temperament));
 			isPlaying = true;
 		}
 	}
@@ -60,7 +60,7 @@
 	// instantly update the pitch if the user changes the dropdown while playing
 	$effect(() => {
 		if (isPlaying && synth) {
-			synth.frequency.value = frequencies_just[note];
+			synth.frequency.value = getFrequency(note, temperament);
 		}
 	});
 
@@ -72,14 +72,14 @@
 </script>
 
 <div class="card card-border bg-base-100 w-56 shrink-0 shadow-xl">
-	<div class="card-body gap-4">
+	<div class="card-body gap-4 p-4">
 		<select class="select select-ghost select-primary w-full text-lg" bind:value={note}>
 			{#each dropdownNoteNames as noteName (noteName)}
-				<option value={noteName}>{noteName} ({frequencies_just[noteName]} Hz)</option>
+				<option value={noteName}>{noteName} ({getFrequency(noteName, temperament)} Hz)</option>
 			{/each}
 		</select>
 
-		<FrequencyImage frequency={frequencies_just[note]} />
+		<FrequencyImage frequency={getFrequency(note, temperament)} />
 
 		<button class="btn btn-primary w-full" type="button" onclick={toggle}>
 			<Fa icon={isPlaying ? faStop : faPlay} />

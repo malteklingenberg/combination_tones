@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
 	import { frequencies_just } from '$lib/note_frequencies';
-
-	type NoteName = keyof typeof frequencies_just;
+	import type { NoteName } from '$lib/frequency';
 
 	let { frequency }: { frequency: number } = $props();
 

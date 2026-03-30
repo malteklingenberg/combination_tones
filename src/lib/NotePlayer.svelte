@@ -39,6 +39,15 @@
 	let synth: Tone.Synth | null = null;
 	let { note = $bindable(), temperament }: { note: NoteName, temperament: Temperament } = $props();
 
+	export function changeNote(up: boolean) {
+		const index = dropdownNoteNames.indexOf(note);
+		if (up && index < dropdownNoteNames.length - 1) {
+			note = dropdownNoteNames[index + 1];
+		} else if (!up && index > 0) {
+			note = dropdownNoteNames[index - 1];
+		}
+	}
+
 	async function toggle() {
 		if (isPlaying) {
 			synth?.triggerRelease();

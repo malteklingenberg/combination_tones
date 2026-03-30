@@ -4,6 +4,7 @@
 	import { type NoteName, Temperament, getFrequency } from '$lib/frequency';
 
 	let explainModalOpen = $state(false);
+	let notePlayer2: NotePlayer;
 
 	let note1 = $state<NoteName>('A4');
 	let note2 = $state<NoteName>('C#5');
@@ -12,7 +13,32 @@
 	let higherFreq = $derived(Math.max(getFrequency(note1, temperament), getFrequency(note2, temperament)));
 	let differenceFrequencyHz = $derived(Math.abs(lowerFreq - higherFreq));
 	let cubicDifferenceFrequencyHz = $derived(2 * lowerFreq - higherFreq);
+
+	function on_key_down(event: KeyboardEvent) {
+		if (event.repeat) return;
+
+		switch (event.key) {
+			case "t":
+				temperament = temperament === Temperament.just ? Temperament.equal : Temperament.just;
+				event.preventDefault();
+				break;
+			
+			case "ArrowUp":
+				notePlayer2.changeNote(true);
+				event.preventDefault();
+				break;
+			
+			case "ArrowDown":
+				notePlayer2.changeNote(false);
+				event.preventDefault();
+				break;
+		}
+	}
 </script>
+
+<svelte:window
+    on:keydown={on_key_down}
+/>
 
 <svelte:head>
 	<title>Combination Tones</title>
@@ -46,7 +72,7 @@
 				</div>
 				<div class="flex gap-6">
 					<NotePlayer bind:note={note1} temperament={temperament} />
-					<NotePlayer bind:note={note2} temperament={temperament} />
+					<NotePlayer bind:this={notePlayer2} bind:note={note2} temperament={temperament} />
 				</div>
 			</div>
 			<div class="flex gap-6">

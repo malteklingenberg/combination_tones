@@ -98,17 +98,3 @@
 		outline: none;
 	}
 }
-
-/*
- * daisyUI's .select uses appearance:none for custom styling, which changes OS
- * keyboard behavior (arrow keys open the popup instead of stepping options).
- * Restore the native menulist so Up/Down cycle the value while focused.
- */
-@layer utilities {
-	.select-plain {
-		appearance: auto !important;
-		-webkit-appearance: menulist !important;
-		-moz-appearance: menulist !important;
-		background: none !important;
-	}
-}

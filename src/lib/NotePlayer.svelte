@@ -6,7 +6,6 @@
 	import { type NoteName, Temperament, getFrequency } from '$lib/frequency';
 	import FrequencyImage from '$lib/FrequencyImage.svelte';
 
-
 	let dropdownNoteNames: NoteName[] = [
 		'A3',
 		'Bb3',
@@ -37,7 +36,7 @@
 
 	let isPlaying = $state(false);
 	let synth: Tone.Synth | null = null;
-	let { note = $bindable(), temperament }: { note: NoteName, temperament: Temperament } = $props();
+	let { note = $bindable(), temperament }: { note: NoteName; temperament: Temperament } = $props();
 
 	export function changeNote(up: boolean) {
 		const index = dropdownNoteNames.indexOf(note);

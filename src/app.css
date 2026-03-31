@@ -100,10 +100,10 @@
 	}
 
 	.font-header {
-  		font-family: "Montserrat", sans-serif;
+		font-family: 'Montserrat', sans-serif;
 		font-size: 62pt;
-  		font-optical-sizing: auto;
-  		font-weight: 600;
-  		font-style: normal;
+		font-optical-sizing: auto;
+		font-weight: 600;
+		font-style: normal;
 	}
 }

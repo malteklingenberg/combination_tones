@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 @import '@fontsource/fira-mono';
 
 @import 'tailwindcss';
@@ -96,5 +97,13 @@
 
 	button:focus:not(:focus-visible) {
 		outline: none;
+	}
+
+	.font-header {
+  		font-family: "Montserrat", sans-serif;
+		font-size: 62pt;
+  		font-optical-sizing: auto;
+  		font-weight: 600;
+  		font-style: normal;
 	}
 }

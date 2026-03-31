@@ -16,7 +16,7 @@
 		Math.max(getFrequency(note1, temperament), getFrequency(note2, temperament))
 	);
 	let differenceFrequencyHz = $derived(Math.abs(lowerFreq - higherFreq));
-	let cubicDifferenceFrequencyHz = $derived(2 * lowerFreq - higherFreq);
+	let cubicDifferenceFrequencyHz = $derived(Math.abs(2 * lowerFreq - higherFreq));
 
 	function on_key_down(event: KeyboardEvent) {
 		if (event.repeat) return;
@@ -48,12 +48,11 @@
 </svelte:head>
 
 <section class="hero min-h-[70vh] bg-transparent">
-	<div class="hero-content flex-col gap-8 px-4 py-8">
-		<h1 class="text-center text-5xl tracking-wide text-base-content">Combination Tones</h1>
+	<div class="hero-content flex-col gap-4 px-4 py-8">
+		<h1 class="text-center tracking-wide text-base-content font-header pb-8">Combination Tones</h1>
 
 		<p>
-			<button class="btn btn-link p-0" onclick={() => (explainModalOpen = true)}>click here</button>
-			for an explanation of what this is
+			don't know what this is about? <button class="btn btn-link p-0" onclick={() => (explainModalOpen = true)}>click here</button> to learn more
 		</p>
 
 		<div class="flex w-full flex-wrap justify-center gap-x-18 gap-y-6">
@@ -83,7 +82,7 @@
 			</div>
 			<div class="flex gap-6">
 				<FrequencyPlayer frequencyHz={differenceFrequencyHz} formula="|f₁ - f₂|" />
-				<FrequencyPlayer frequencyHz={cubicDifferenceFrequencyHz} formula="2f₁ - f₂" />
+				<FrequencyPlayer frequencyHz={cubicDifferenceFrequencyHz} formula="|2f₁ - f₂|" />
 			</div>
 		</div>
 	</div>

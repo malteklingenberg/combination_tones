@@ -110,8 +110,10 @@
 			Select two notes on the left. The resulting combination tones are displayed on the right. Play the
 			notes you selected using the play buttons below them and try to hear the combination tones. If you
 			are having trouble discerning them, you can play the combination tones to give you a hint of what
-			to listen out for. You can also switch between just intonation (intervals based on the harmonic
-			series) and equal temperament using the dropdown menu at the top.
+			to listen out for. You can switch between just intonation (intervals based on the harmonic series)
+			and equal temperament using the dropdown menu at the top.<br />
+			Additionally, you can use the keyboard: the 't' key switches between just and equal temperament,
+			and the up and down arrow keys change the second selected note.
 		</p>
 
 		<p class="py-4 text-sm">

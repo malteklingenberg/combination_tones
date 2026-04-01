@@ -24,7 +24,7 @@
 	});
 </script>
 
-{#if frequency <= 0}
+{#if frequency <= 0.01}
 	<img class="mx-auto block w-4/5" src={asset(`/note_images/0.png`)} alt="(0 or negative)" />
 	<p class="-mt-4 text-center text-2xl text-base-content">&nbsp;</p>
 {:else if closestNote !== null && closestDiffCents != null}

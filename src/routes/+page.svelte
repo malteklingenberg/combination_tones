@@ -100,9 +100,15 @@
 	<div class="modal-box w-11/12 max-w-5xl" onclick={(e) => e.stopPropagation()}>
 		<h2 class="text-xl font-bold">Hello!</h2>
 		<p class="py-4 text-sm">
-			This is a demonstration of the acoustic phenomenon of <i>combination tones</i>. When two notes
-			of different frequencies are played, nonlinearities in the ear, but also in electronic
-			speakers and elsewhere generate additional frequencies, which can be heard as extra notes.
+			This is a demonstration of the acoustic phenomenon of <a
+				href="https://en.wikipedia.org/wiki/Combination_tone"
+				target="_blank">combination tones</a
+			>. When two notes of different frequencies are played, nonlinearities in the ear, but also in
+			electronic speakers and elsewhere generate additional frequencies, which can be heard as extra
+			notes. The combination tones are usually a lot quieter than the primary tones, so I recommend
+			turning your speakers up or using headphones to make it easier to hear them. Another tip is to
+			fix one of the notes (e.g. to A4), switch the second one back and forth between two
+			neighbouring notes (e.g. C5 and C#5), and listen to how the combination tones change too.
 		</p>
 
 		<p class="py-4 text-sm">
@@ -121,9 +127,10 @@
 			Sometimes, the combination tones don't align nicely with the scale notes in just intonation. The
 			number below the note gives the size of that deviation: a negative value means that the combination
 			tone is lower than the displayed note, while a positive value means it is higher. The deviation
-			is given in cents, where 1200 cents is an octave and 100 cents an equal-tempered semitone. Note
-			that even if you select equal temperament, the deviation given always refers to the displayed note
-			in just intonation.
+			is given in <a href="https://en.wikipedia.org/wiki/Cent_(music)" target="_blank">cents</a>,
+			where 1200 cents is an octave and 100 cents an equal-tempered semitone. Note that even if you
+			select equal temperament, the deviation given always refers to the displayed note in just
+			intonation.
 		</p>
 
 		<p class="py-4 text-sm">
